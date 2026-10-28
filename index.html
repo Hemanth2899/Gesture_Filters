@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="description" content="GestureAR — browser-based hand gesture recognition and face filters." />
+  <title>GestureAR — Gesture Controlled AR</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div><p class="eyebrow">COMPUTER VISION · AUGMENTED REALITY</p><h1>Gesture<span>AR</span></h1></div>
+      <div class="live-pill"><span class="dot"></span><span id="status">Camera off</span></div>
+    </header>
+    <section class="intro"><div><h2>Your hands control the effects.</h2><p>Allow camera access, then try a gesture. Camera processing runs in your browser.</p></div><button id="startBtn" class="primary">Start camera</button></section>
+    <section class="workspace">
+      <div class="camera-card">
+        <div class="stage" id="stage"><video id="video" playsinline muted></video><canvas id="canvas"></canvas><div id="placeholder" class="placeholder"><div class="camera-icon">◉</div><h3>Your camera preview</h3><p>Press “Start camera” to begin.</p></div><div class="stage-badge">LIVE PREVIEW</div><div id="gestureBadge" class="gesture-badge">Gesture: —</div></div>
+        <div class="camera-actions"><button id="captureBtn" disabled>⌁ Capture screenshot</button><button id="stopBtn" disabled>Stop camera</button></div>
+      </div>
+      <aside class="side-panel">
+        <h3>Effects</h3><p class="muted">Select one manually or use the matching hand gesture.</p>
+        <div class="filter-grid">
+          <button class="filter active" data-filter="none"><span>◌</span><b>None</b><small>Clear view</small></button>
+          <button class="filter" data-filter="goggles"><span>🕶️</span><b>Goggles</b><small>✌️ Peace</small></button>
+          <button class="filter" data-filter="dog"><span>🐶</span><b>Dog</b><small>👍 Thumbs up</small></button>
+          <button class="filter" data-filter="cat"><span>🐱</span><b>Cat</b><small>✊ Fist</small></button>
+          <button class="filter" data-filter="bow"><span>🎀</span><b>Bow</b><small>🖐️ Open palm</small></button>
+          <button class="filter" data-filter="makeup"><span>💄</span><b>Makeup</b><small>Makeup gesture*</small></button>
+          <button class="filter" data-filter="hearts"><span>💗</span><b>Hearts</b><small>Heart gesture*</small></button>
+        <button class="filter" data-filter="ghost"><span>👻</span><b>Ghost</b><small>Spooky</small></button>
+          <button class="filter" data-filter="crown"><span>👑</span><b>Crown</b><small>Royal</small></button>
+          <button class="filter" data-filter="clown"><span>🤡</span><b>Clown</b><small>Red nose</small></button>
+          <button class="filter" data-filter="devil"><span>😈</span><b>Devil</b><small>Horns</small></button>
+          <button class="filter" data-filter="paris"><span>🥐</span><b>Paris</b><small>Beret + moustache</small></button>
+          <button class="filter" data-filter="oslo"><span>❄️</span><b>Oslo</b><small>Beanie + snow</small></button>
+          <button class="filter" data-filter="tokyo"><span>🌸</span><b>Tokyo</b><small>Neon + sakura</small></button>
+        </div>
+        <div class="tip"><b>Quick tip</b><p>Keep your face and one hand visible, with good lighting. Gesture recognition is approximate and may vary with camera angle.</p></div>
+        <p class="footnote">*The web version uses browser-based landmark heuristics. It is a web adaptation of the supplied Python project, not a line-for-line port.</p>
+      </aside>
+    </section>
+    <footer>GestureAR · Browser demo · Camera frames are processed locally in your browser.</footer>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
